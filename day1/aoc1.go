@@ -8,16 +8,16 @@ import (
 	"golang.design/x/clipboard"
 )
 
-func startDay1() {
+func Day1() {
 
 	err := clipboard.Init()
 	if err != nil {
 		panic(err)
 	}
-	data()
+	SolveDay1()
 }
 
-func data() {
+func SolveDay1() {
 	var primary, secondary, tertiary, total int
 	content := clipboard.Read(clipboard.FmtText)
 	var keys []string

@@ -9,16 +9,16 @@ import (
 	"golang.design/x/clipboard"
 )
 
-func main() {
+func Day2() {
 
 	err := clipboard.Init()
 	if err != nil {
 		panic(err)
 	}
-
+	SolveDay2()
 }
 
-func data() {
+func SolveDay2() {
 	const rock, paper, scissors, loss, draw, win int = 1, 2, 3, 0, 3, 6 // rock, paper, scissors, loss, draw, win r, p, s, l, d ,w
 
 	content := clipboard.Read(clipboard.FmtText)
@@ -30,5 +30,6 @@ func data() {
 	setsMap := strings.Split(sets, "\r\n\r\n")
 	for _, vals := range setsMap {
 		fmt.Println(vals)
+
 	}
 }
