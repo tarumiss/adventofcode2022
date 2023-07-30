@@ -18,10 +18,7 @@ func startDay1() {
 }
 
 func data() {
-	primary := 0
-	secondary := 0
-	tertiary := 0
-	total := 0
+	var primary, secondary, tertiary, total int
 	content := clipboard.Read(clipboard.FmtText)
 	var keys []string
 	if content == nil {
