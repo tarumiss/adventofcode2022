@@ -1,4 +1,4 @@
-package day1
+package main
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"golang.design/x/clipboard"
 )
 
-func Day1() {
+func main() {
 
 	err := clipboard.Init()
 	if err != nil {
