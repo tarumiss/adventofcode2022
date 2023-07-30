@@ -18,7 +18,9 @@ func main() {
 }
 
 func data() {
-	largest := 0
+	primary := 0
+	secondary := 0
+	tertiary := 0
 	total := 0
 	content := clipboard.Read(clipboard.FmtText)
 	var keys []string
@@ -51,14 +53,24 @@ func data() {
 		for _, value := range values {
 			subTotal += value
 		}
-		if subTotal > largest {
-			largest = subTotal
+		if subTotal > primary {
+			tertiary = secondary
+			secondary = primary
+			primary = subTotal
+		} else if subTotal > secondary {
+			tertiary = secondary
+			secondary = subTotal
+		} else if subTotal > tertiary {
+			tertiary = subTotal
 		}
 		total += subTotal
-		fmt.Println(key, " Calories:", subTotal)
+		//fmt.Println(key, " Calories:", subTotal)
 	}
 	fmt.Println("Number of Elves:", len(elves))
-	fmt.Println("Largest:", largest)
+	fmt.Println("Primary:", primary)
+	fmt.Println("Secondary:", secondary)
+	fmt.Println("Tertiary:", tertiary)
+	fmt.Println("Top 3 Total:", primary+secondary+tertiary)
 	fmt.Println("Total:", total)
 
 }
